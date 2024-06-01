@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Generator</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="full_name">Full Name:</label><br>
+        <input type="text" id="full_name" name="full_name" required><br><br>
+
+        <label for="title">Location:</label><br>
+        <input type="text" id="location" name="location" placeholder="Full Address" required><br><br>
+
+        <label for="title">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="template">Choose a Template:</label><br>
+        <input type="radio" id="template1" name="template" value="template1" checked>
+        <label for="template">Template 1:</label><br>
+        <input type="radio" id="template2" name="template" value="template2" checked>
+        <label for="template">Template 2</label><br>
+        <input type="radio" id="template3" name="template" value="template3" checked>
+        <label for="template">Template 2</label><br><br>
+
+        <input type="submit" value="Generate CV">
+    </form>
+    <form action="/preview" method="post">
+        <input type="hidden" id="full_name" name="preview_full_name">
+        <input type="hidden" id="title" name="preview_title">
+        <input type="hidden" id="template" name="preview_template">
+        <button type="button" onclick="previewCV()">Preview</button>
+    </form>
+    <script>
+        function previewCV(){
+            document.getElementById('preview_full_name').value = document.getElementById('full_name').value;
+            document.getElementById('preview_title').value = document.getElementById('title').value;
+            const template = document.querySelector('input[name="template"]:checked').value;
+            document.getElementById('preview_template').value = template;
+            document.forms[1].submit();
+        }
+    </script>
+</body>
+</html>

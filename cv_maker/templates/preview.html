@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Preview</title>
+</head>
+<body>
+    <h1>Preview Your CV</h1>
+    <div>
+        <p><strong>Full Name:</strong> {{full_name}}</p>
+        <p><strong>Location:</strong> {{location}}</p>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Title:</strong> {{title}}</p>
+        <p><strong>Template:</strong> {{full_name}}</p>
+    </div>
+    <form action="/" method="post">
+        <input type="hidden" name="full_name" value="{{full_name}}">
+        <input type="hidden" name="title" value="{{title}}">
+        <input type="hidden" name="template" value="{{ template }}">
+        <input type="submit" value="Confirm and Generate CV">
+    </form>
+    <a href="/">Go back</a>
+</body>
+</html>

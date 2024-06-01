@@ -2,39 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Form</title>
+    <title>Create Resume</title>
 </head>
 <body>
-    <form action="/submit" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br><br>
-        
-        <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact"><br><br>
-        
+    <h1>Create Your Resume</h1>
+    <form method="post" action="/submit">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="contact">Contact:</label><br>
+        <input type="text" id="contact" name="contact"><br>
         <label for="summary">Summary:</label><br>
-        <textarea id="summary" name="summary" rows="4" cols="50"></textarea><br><br>
-        
+        <textarea id="summary" name="summary"></textarea><br>
         <label for="projects">Projects:</label><br>
-        <textarea id="projects" name="projects" rows="4" cols="50"></textarea><br><br>
-        
+        <textarea id="projects" name="projects"></textarea><br>
         <label for="education">Education:</label><br>
-        <textarea id="education" name="education" rows="4" cols="50"></textarea><br><br>
-        
+        <textarea id="education" name="education"></textarea><br>
         <label for="experience">Experience:</label><br>
-        <textarea id="experience" name="experience" rows="4" cols="50"></textarea><br><br>
-        
+        <textarea id="experience" name="experience"></textarea><br>
         <label for="skills">Skills:</label><br>
-        <textarea id="skills" name="skills" rows="4" cols="50"></textarea><br><br>
-        
+        <textarea id="skills" name="skills"></textarea><br>
         <label for="languages">Languages:</label><br>
-        <textarea id="languages" name="languages" rows="4" cols="50"></textarea><br><br>
-        
-        <input type="submit" value="Submit">
+        <textarea id="languages" name="languages"></textarea><br>
+        <input type="submit" value="Generate Resume">
+    </form>
+    <form method="post" action="/preview">
+        <input type="hidden" name="name" value="{{ request.form['name'] }}">
+        <input type="hidden" name="title" value="{{ request.form['title'] }}">
+        <input type="hidden" name="contact" value="{{ request.form['contact'] }}">
+        <input type="hidden" name="summary" value="{{ request.form['summary'] }}">
+        <input type="hidden" name="projects" value="{{ request.form['projects'] }}">
+        <input type="hidden" name="education" value="{{ request.form['education'] }}">
+        <input type="hidden" name="experience" value="{{ request.form['experience'] }}">
+        <input type="hidden" name="skills" value="{{ request.form['skills'] }}">
+        <input type="hidden" name="languages" value="{{ request.form['languages'] }}">
+        <button type="submit">Preview Resume</button>
     </form>
 </body>
 </html>
